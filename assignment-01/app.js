@@ -9,23 +9,28 @@
 
       // Empty string between commas are ignored/deleted
         Array.prototype.removeEmptyString = function() {
-            for (let i = 0; i < this.length; i++) {
+            for (var i = 0; i < this.length; i++) {
                 if (this[i] === '')
                     this.splice(i--, 1);
             }
         };
       //////////////////////////////////////////////////
 
-        let food = [];
+        var food = [];
+        $scope.color = 'black';
         $scope.lunch = '';
 
         $scope.check = function() {
             food = ($scope.lunch).split(',');
             food.removeEmptyString();
-            if (food.length === 0)
+            if (food.length === 0){
+                $scope.color = 'red';
                 $scope.message = 'Please enter data first';
-            else
+            }
+            else{
+                $scope.color = 'green';
                 $scope.message = (food.length > 3) ? 'Too much!' : 'Enjoy!';
+            }
         };
     }
 
