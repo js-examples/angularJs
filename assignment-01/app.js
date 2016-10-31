@@ -5,17 +5,18 @@
 
     myApp.controller('myController', myController);
     myController.$inject = ['$scope'];
-
     function myController($scope) {
 
+      // Empty string between commas are ignored/deleted
         Array.prototype.removeEmptyString = function() {
             for (let i = 0; i < this.length; i++) {
                 if (this[i] === '')
                     this.splice(i--, 1);
             }
         };
+      //////////////////////////////////////////////////
 
-        var food = [];
+        let food = [];
         $scope.lunch = '';
 
         $scope.check = function() {
