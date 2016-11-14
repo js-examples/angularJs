@@ -24,7 +24,7 @@
         list1.addItem = function() {
             if (list1.name === '' || list1.quantity==='') {}
             else {
-               shoppingList.addItem(list1.name, list1.quantity);
+               ShoppingList.addItem(list1.name, list1.quantity);
                list1.name = '';
                list1.quantity = '';
             }
