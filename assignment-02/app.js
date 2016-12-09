@@ -1,4 +1,4 @@
-(function() {
+(function () {
     'use strict';
 
     var myApp = angular.module('myApp', [])
@@ -7,6 +7,7 @@
         .service('ShoppingListService', ShoppingListService);
 
     ShoppingListController.$inject = ['ShoppingListService'];
+
     function ShoppingListController(ShoppingListService) {
 
         var list1 = this;
@@ -21,22 +22,22 @@
         list1.name = '';
         list1.quantity = '';
 
-        list1.addItem = function() {
-            if (list1.name === '' || list1.quantity==='') {}
-            else {
-               ShoppingListService.addItem(list1.name, list1.quantity);
-               list1.name = '';
-               list1.quantity = '';
+        list1.addItem = function () {
+            if (list1.name === '' || list1.quantity === '') {} else {
+                ShoppingListService.addItem(list1.name, list1.quantity);
+                list1.name = '';
+                list1.quantity = '';
             }
         };
 
-        list1.removeItem = function(idx) {
+        list1.removeItem = function (idx) {
             ShoppingListService.removeItem(idx);
         };
     }
 
 
     CompletedListController.$inject = ['ShoppingListService'];
+
     function CompletedListController(ShoppingListService) {
 
         var list2 = this;
@@ -49,7 +50,7 @@
         var itemLists = [];
         var doneLists = [];
 
-        service.addItem = function(sName, iQuantity) {
+        service.addItem = function (sName, iQuantity) {
             var item = {
                 name: sName,
                 quantity: iQuantity
@@ -57,17 +58,17 @@
             itemLists.push(item);
         };
 
-        service.removeItem = function(idx) {
+        service.removeItem = function (idx) {
             doneLists.push(itemLists[idx]);
             itemLists.splice(idx, 1);
         };
 
-        service.getItemLists = function() {
+        service.getItemLists = function () {
             return itemLists;
         };
 
-        service.getDoneLists = function() {
-           return doneLists;
+        service.getDoneLists = function () {
+            return doneLists;
         };
     }
 
