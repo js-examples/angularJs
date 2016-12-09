@@ -36,12 +36,16 @@
                 <input type="text" ng-model="list1.quantity" name="list1.quantity" placeholder="Quantity ">
                 <button ng-click="list1.addItem()">Add Item</button>
                 <h2>To Buy:</h2>
-                <ul ng-repeat="item in list1.items">
-                    <li>
-                        <span padding="10px">{{item.quantity}} of {{item.name}}
-                          <button ng-click="list1.removeItem($index);">Buy it</button></span>
-                    </li>
-                </ul>
+                <table>
+                    <tr ng-repeat="item in list1.items">
+                        <td style="spacing:5px; padding:5px">
+                            <li padding="10px">{{item.quantity}} of {{item.name}}</li>
+                        </td>
+                        <td style="spacing:5px; padding:5px">
+                            <button ng-click="list1.removeItem($index);">Buy it</button>
+                        </td>
+                    </tr>                  
+                </table>
                 <div class="emptyMessage" ng-show="list1.items.length<1">Everything is bought!</div>
             </div>
             <!-- Already Bought List -->
