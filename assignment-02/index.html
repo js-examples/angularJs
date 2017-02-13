@@ -4,26 +4,7 @@
 <head>
     <title>Shopping List Check Off</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        .emptyMessage {
-            font-weight: bold;
-            color: red;
-            font-size: 1.2em;
-        }
-        
-        li {
-            margin-bottom: 7px;
-            font-size: 1.2em;
-        }
-        
-        li>button {
-            margin-left: 6px;
-        }
-        
-        button>span {
-            color: green;
-        }
-    </style>
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body>
@@ -44,24 +25,33 @@
                         <td style="spacing:5px; padding:5px">
                             <button ng-click="list1.removeItem($index);">Buy it</button>
                         </td>
-                    </tr>                  
+                    </tr>
                 </table>
                 <div class="emptyMessage" ng-show="list1.items.length<1">Everything is bought!</div>
             </div>
+
             <!-- Already Bought List -->
             <div class="col-md-6" ng-controller='CompletedListController as list2'>
                 <h2>Already Bought:</h2>
-                <ul ng-repeat="item in list2.items">
-                    <li><span padding="10px">{{item.quantity}} of {{item.name}}</li>
-                    </ul>
-                    <div class="emptyMessage" ng-show="list2.items.length<1">Nothing bought yet.</div>
-                </div>
+                <table>
+                    <tr ng-repeat="item in list2.items">
+                        <td style="spacing:5px; padding:5px">
+                            <li><span padding="10px">{{item.quantity}} of {{item.name}}</li>
+                        </td>
+                        <td style="spacing:5px; padding:5px">
+                            <button ng-click="list2.removeItem($index);">Remove</button>
+                        </td>
+                    </tr>
+                </table>
+                <div class="emptyMessage" ng-show="list2.items.length<1">Nothing bought yet.</div>
             </div>
+            <!-- End Already Bought List -->
         </div>
+     </div>
 
-        <link rel="stylesheet" href="styles/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-        <script src="app.js"></script>
+     <link rel="stylesheet" href="styles/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+     <script src="app.js"></script>
 
     </body>
 </html>

@@ -1,0 +1,7 @@
+{
+    "esversion": 6,
+    "-W033": false,
+    "globals": {
+      "console":false
+    }
+}
