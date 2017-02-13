@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Shopping List Check Off</h1>
+        <div class="row">
+            <!-- To Buy List -->
+            <div id="list1" class="col-md-6" ng-controller='ShoppingListController as list1'>
+                <input type="text" ng-model="list1.name" name="list1.name" placeholder="Name ">
+                <input type="text" ng-model="list1.quantity" name="list1.quantity" placeholder="Quantity ">
+                <button ng-click="list1.addItem()">Add Item</button>
+                <h2>To Buy:</h2>
+                <table>
+                    <tr ng-repeat="item in list1.items">
+                        <td style="spacing:5px; padding:5px">
+                            <li padding="10px">{{item.quantity}} of {{item.name}}</li>
+                        </td>
+                        <td style="spacing:5px; padding:5px">
+                            <button ng-click="list1.removeItem($index);">Buy it</button>
+                        </td>
+                    </tr>
+                </table>
+                <div class="emptyMessage" ng-show="list1.items.length<1">Everything is bought!</div>
+            </div>
+
+            <!-- Already Bought List -->
+            <div class="col-md-6" ng-controller='CompletedListController as list2'>
+                <h2>Already Bought:</h2>
+                <table>
+                    <tr ng-repeat="item in list2.items">
+                        <td style="spacing:5px; padding:5px">
+                            <li><span padding="10px">{{item.quantity}} of {{item.name}}</li>
+                        </td>
+                        <td style="spacing:5px; padding:5px">
+                            <button ng-click="list2.removeItem($index);">Remove</button>
+                        </td>
+                    </tr>
+                </table>
+                <div class="emptyMessage" ng-show="list2.items.length<1">Nothing bought yet.</div>
+            </div>
+            <!-- End Already Bought List -->
+        </div>
+     </div>
+
+     <link rel="stylesheet" href="styles/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+     <script src="app.js"></script>
+
+    </body>
+</html>
