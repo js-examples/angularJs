@@ -55,6 +55,7 @@
                            }
                        }
                     search.menuItems = found;
+                    search.desc = '';
                 })
                 .catch(function(error) {
                     console.log(error);
