@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
   <head>
     <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,22 +7,24 @@
     <link rel="stylesheet" href="styles/styles.css">
   </head>
 <body>
-   <div class="container">
+   <div class="container" ng-controller="NarrowItDownController as search">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
+    <div class="">
+         <div class="form-group">
+           <input type="text" ng-model="search.desc" name="search.desc" placeholder="search term" class="form-control">
+         </div>
 
-    <div class="form-group">
-      <input type="text" placeholder="search term" class="form-control">
-    </div>
-    <div class="form-group narrow-button">
-      <button class="btn btn-primary">Narrow It Down For Me!</button>
+         <div class="form-group narrow-button">
+           <button class="btn btn-primary" ng-click="search.getSearchList()">Narrow It Down For Me!</button>
+        </div>
     </div>
 
-    <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
+    <!-- <br><hr> -->
+    <found-items found="search.menuItems" onRemove="search.removeItem()"></found-items>
   </div>
 
   <link rel="stylesheet" href="styles/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
