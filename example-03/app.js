@@ -13,7 +13,7 @@
             restrict: 'AE',
             templateUrl: 'foundItems.html',
             scope: {
-                found: '<',
+                search: '<',
                 remove: '&'
             },
         };

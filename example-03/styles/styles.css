@@ -52,6 +52,6 @@ input[type="text"] {
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: #346c94;
+  background-color: #717474;
   color: white;
 }
