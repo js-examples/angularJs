@@ -16,17 +16,17 @@
 
         <tbody>
 
-            <tr id="{{$index}}" ng-repeat="item in found" style="cursor:pointer">
+            <tr id="{{$index}}" ng-repeat="item in found.menuItems" style="">
                 <td>{{$index+1}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.short_name}}</td>
                 <td>{{item.description}}</td>
-                <th><button class="btn btn-danger" style="outline:none" ng-click="">Don't want this one!</button></th>
+                <th><button class="btn btn-danger" style="outline:none; cursor:pointer" ng-click="remove({index:$index})">Don't want this one!</button></th>
             </tr>
         </tbody>
     </table>
 
-    <div align="center" ng-if="found.length===0">
+    <div align="center" ng-if="found.menuItems.length===0">
       <h3 style="font-size:2em; font-family:verdana,sans-serif; color:red">Nothing found</h3>
     </div>
 </div>

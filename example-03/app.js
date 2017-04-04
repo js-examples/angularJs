@@ -14,10 +14,11 @@
             templateUrl: 'foundItems.html',
             scope: {
                 found: '<',
-                onRemove: '&'
-            }
+                remove: '&'
+            },
         };
     }
+
 
     MenuSearchService.$inject = ['$http', 'ApiEndPoint'];
 
@@ -49,7 +50,7 @@
                     var tempStr;
                     if(search.desc!=='')
                        for (var i = 0, length = res.data.menu_items.length; i < length; i++) {
-                           tempStr = (res.data.menu_items[i].description).split(' ');
+                           tempStr = (res.data.menu_items[i].description).toLowerCase();
                            if (tempStr.indexOf(search.desc.toLowerCase()) >= 0) {
                                found.push(res.data.menu_items[i]);
                            }
@@ -64,6 +65,7 @@
 
         search.removeItem = function(idx){
            found.splice(idx, 1);
+           console.log(found.length);
         }
     }
 

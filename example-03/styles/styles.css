@@ -50,3 +50,8 @@ input[type="text"] {
     transform: rotate(360deg);
   }
 }
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #346c94;
+  color: white;
+}
