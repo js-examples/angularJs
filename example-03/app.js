@@ -65,7 +65,6 @@
 
         search.removeItem = function(idx){
            found.splice(idx, 1);
-           console.log(found.length);
         }
     }
 
