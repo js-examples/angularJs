@@ -1,34 +1,30 @@
 
-<div class="panel">
-    <br>
-    <h3 class="panel-header"></h3>
+<div class="panel" style="position:relative; top:50px">
+    <h3 class="panel-header" style="font-family:fantasy; font-weight:bold; color:#cf065a">
+      <a ui-sref="home">Home</a> &lt; <a ui-sref="categories">categories</a> &lt; <span style="color:#888">Items</span></h3>
     <table class="table table-bordered table-striped table-hover">
 
-         <thead ng-if="search.menuItems.length">
+         <thead ng-if="$ctrl.data.length">
              <tr style="font-family:sans-serif; font-size:1em; background-color:#7f8686; color:white">
                  <th>#</th>
-                 <th>Name</th>
                  <th>Short Name</th>
+                 <th>Name</th>
                  <th>Description</th>
-                 <th></th>
+                 <th>Small</th>
+                 <th>Large</th>
              </tr>
          </thead>
 
         <tbody>
-
-            <tr id="{{$index}}" ng-repeat="item in search.menuItems" style="">
+            <tr id="" ng-repeat="item in $ctrl.data" style="">
                 <td>{{$index+1}}</td>
+                <td align="center">{{item.short_name}}</td>
                 <td>{{item.name}}</td>
-                <td>{{item.short_name}}</td>
                 <td>{{item.description}}</td>
-                <th><button class="btn btn-danger" style="outline:none; cursor:pointer" ng-click="remove({index:$index})">Don't want this one!</button></th>
+                <td>{{item.price_small}}</td>
+                <td>{{item.price_small}}</td>
                 <!-- <th><button class="btn btn-danger" style="outline:none; cursor:pointer" ng-click="$parent.search.removeItem($index)">Don't want this one!</button></th> -->
-
             </tr>
         </tbody>
     </table>
-
-    <div align="center" ng-if="search.menuItems.length===0">
-      <h3 style="font-size:2em; font-family:verdana,sans-serif; color:red">Nothing found</h3>
-    </div>
 </div>

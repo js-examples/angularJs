@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app='MenuApp'>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Angular - Example 4</title>
+    <!-- <base href="/"> -->
+</head>
+
+<body>
+
+    <div class="headerMenu">
+        <div class="items" style="padding:5px">
+            <a ui-sref="home" style="position:relative; left:10px">Home</a>
+        </div>
+    </div>
+
+    <ui-view></ui-view>
+
+    <!-- Libraries -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+
+    <!-- Modules -->
+    <script src="src/home/menuapp.module.js"></script>
+    <script src="src/service/data.module.js"></script>
+
+    <!-- Routes -->
+    <script src="src/route.js"></script>
+
+    <!-- 'ShoppingList' module artifacts -->
+    <script src="src/categories/categories.controller.js"></script>
+    <script src="src/categories/categories.component.js"></script>
+    <script src="src/items/items.controller.js"></script>
+    <script src="src/items/items.component.js"></script>
+    <script src="src/service/menudata.service.js"></script>
+
+</body>
+
+</html>
