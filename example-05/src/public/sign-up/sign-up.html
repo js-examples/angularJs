@@ -1,0 +1,38 @@
+<div class="container" style="position:relative; width:500px">
+   <form name="myform" ng-submit="register()" novalidate>
+      <br>
+      <div class="form-group">
+         <label class="control-label" for="">First Name</label>
+         <input class="form-control" type="text" name="firstName" ng-model="firstName" required/>
+         <span style="color:yellow" ng-show="myform.username.$dirty && myform.username.$error.required">First Name is Required</span>
+      </div>
+
+      <div class="form-group">
+         <label class="control-label" for="">Last Name</label>
+         <input class="form-control" type="text" name="lastName" ng-model="lastName" required/>
+      </div>
+
+      <div class="form-group">
+         <label class="control-label" for="">Email Address</label>
+         <input class="form-control" type="text" name="email" ng-model="email" required/>
+      </div>
+
+      <div class="form-group">
+         <label class="control-label" for="">Phone Number</label>
+         <input class="form-control" type="text" name="phone" ng-model="phone" required/>
+      </div>
+
+      <div class="form-group">
+         <label class="control-label" for="">Favorite Dish</label>
+         <input class="form-control" type="text" name="favorDish" ng-model="favorDish" required/>
+      </div>
+
+      <div class="form-group">
+          <div style="float: right">
+            <button class="btn btn-primary" type="reset">Reset</button>
+            <button class="btn btn-primary" ng-disabled="myform.$invalid">Submit</button>
+          </div>
+      </div>
+      <br>
+   </form>
+</div>

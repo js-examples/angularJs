@@ -6,8 +6,6 @@
 
     CategoriesController.$inject = ['MenuDataService'];
     function CategoriesController(MenuDataService) {
-   //  CategoriesController.$inject = ['items'];
-   //  function CategoriesController(items) {
         var categories = this;
         categories.categoryItems = [];
 
@@ -15,7 +13,6 @@
             var promise = MenuDataService.getAllCategories();
             promise.then(function(res) {
                     categories.categoryItems = res.data;
-                  //   console.log(categories.categoryItems.length);
                 })
                 .catch(function(error) {
                     console.log(error);
