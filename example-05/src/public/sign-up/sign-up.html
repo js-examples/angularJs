@@ -1,38 +1,61 @@
 <div class="container" style="position:relative; width:500px">
-   <form name="myform" ng-submit="register()" novalidate>
-      <br>
-      <div class="form-group">
-         <label class="control-label" for="">First Name</label>
-         <input class="form-control" type="text" name="firstName" ng-model="firstName" required/>
-         <span style="color:yellow" ng-show="myform.username.$dirty && myform.username.$error.required">First Name is Required</span>
-      </div>
 
-      <div class="form-group">
-         <label class="control-label" for="">Last Name</label>
-         <input class="form-control" type="text" name="lastName" ng-model="lastName" required/>
-      </div>
+    <div ng-if="signUpCtrl.registered">
+        <span class="alert alert-success">You are already registered!</span>
+    </div>
 
-      <div class="form-group">
-         <label class="control-label" for="">Email Address</label>
-         <input class="form-control" type="text" name="email" ng-model="email" required/>
-      </div>
 
-      <div class="form-group">
-         <label class="control-label" for="">Phone Number</label>
-         <input class="form-control" type="text" name="phone" ng-model="phone" required/>
-      </div>
+    <div ng-if="signUpCtrl.validForm">
+        <span class="alert alert-success">Your information has been saved!</span>
+    </div>
 
-      <div class="form-group">
-         <label class="control-label" for="">Favorite Dish</label>
-         <input class="form-control" type="text" name="favorDish" ng-model="favorDish" required/>
-      </div>
 
-      <div class="form-group">
-          <div style="float: right">
-            <button class="btn btn-primary" type="reset">Reset</button>
-            <button class="btn btn-primary" ng-disabled="myform.$invalid">Submit</button>
-          </div>
-      </div>
-      <br>
-   </form>
+    <form name="myform" novalidate ng-if="!signUpCtrl.registered && !signUpCtrl.validForm">
+        <br>
+        <div class="form-group">
+            <label class="control-label" for="">First Name</label>
+            <input class="form-control" type="text" name="firstname" ng-model="signUpCtrl.userInfo.firstname" placeholder="Enter your first name (Required)" required/>
+            <span style="color:yellow" ng-if="myform.firstname.$error.required &&
+               myform.firstname.$touched">First Name is Required</span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="">Last Name</label>
+            <input class="form-control" type="text" name="lastname" ng-model="signUpCtrl.userInfo.lastname" placeholder="Enter your last name (Required)" required/>
+            <span style="color:yellow" ng-if="myform.lastname.$error.required &&
+               myform.lastname.$touched">Last Name is Required</span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="">Email Address</label>
+            <input class="form-control" type="email" name="email" ng-model="signUpCtrl.userInfo.email" placeholder="Enter your email address (Required)" required/>
+            <span style="color:yellow" ng-if="myform.email.$invalid && myform.email.$touched">
+             Must be a valid email address: name@domain format
+           </span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="">Phone Number</label>
+            <input class="form-control" type="text" name="phone" ng-model="signUpCtrl.userInfo.phone" placeholder="###-###-#### (Required)"
+            pattern="(\d{3})-(\d{3})-(\d{4})" />
+            <span style="color:yellow" ng-if="myform.phone.$invalid && myform.phone.$touched">
+             Phone must be in the format ###-###-####.
+           </span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="">Favorite Dish</label>
+            <input class="form-control" type="text" name="favorDish" ng-model="signUpCtrl.userInfo.favorDish" placeholder="Enter your favor dish (Example: A10) (Required)" required/>
+            <div style="color:yellow" ng-show="signUpCtrl.isMenuExisted">No such menu number exists</div>
+        </div>
+
+        <div class="form-group">
+            <div style="float: right">
+                <button class="btn btn-primary" type="reset">Reset</button>
+                <button class="btn btn-primary" ng-disabled="myform.$invalid" ng-click="signUpCtrl.submit()">Submit</button>
+            </div>
+        </div>
+        <br>
+    </form>
+
 </div>

@@ -1,0 +1,47 @@
+
+   <div ng-if="myInfoCtrl.userInfo===null">
+      <div align="center">
+         Not Register Yet. Please Sign Up <a ui-sref="public.signup">Now</a>!
+      </div>
+   </div>
+
+   <div align="center" ng-if="myInfoCtrl.userInfo!==null" ng-init="myInfoCtrl.getMenuInfo()">
+         <h3>My Information</h3>
+         <div class="">
+            <table class="table table-bordered" style="width:500px">
+               <tr>
+                  <td>First Name</td><td>{{myInfoCtrl.userInfo.firstname}}</td>
+               </tr>
+               <tr>
+                  <td>Last Name</td><td>{{myInfoCtrl.userInfo.lastname}}</td>
+               </tr>
+               <tr>
+                  <td>Email</td><td>{{myInfoCtrl.userInfo.email}}</td>
+               </tr>
+               <tr>
+                  <td>Phone</td><td>{{myInfoCtrl.userInfo.phone}}</td>
+               </tr>
+               <!-- <tr>
+                  <td>Favor Dish</td><td>{{myInfoCtrl.userInfo.favorDish}}</td>
+               </tr> -->
+            </table>
+
+         </div>
+         <div align="center" style="width:500px">
+            <h3 class="">
+               My Favorite Dish
+            </h3>
+            <table class="table table-bordered">
+               <tr>
+                  <td>{{myInfoCtrl.userInfo.favorDish}} - {{myInfoCtrl.menuInfo.name}}</td>
+               </tr>
+               <tr align="center">
+                  <td><img ng-src="https://js-restaurant.herokuapp.com/images/{{myInfoCtrl.userInfo.favorDish.toUpperCase()}}.jpg" alt=""></td>
+               </tr>
+               <tr>
+                  <td>{{myInfoCtrl.menuInfo.description}}</td>
+               </tr>
+            </table>
+
+         </div>
+   </div>
