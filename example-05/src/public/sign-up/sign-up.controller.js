@@ -2,10 +2,11 @@
    'use strict';
 
    angular.module('public')
-   .controller('SignUpController', SignUpController);
+   .controller('SignUpController', SignUpController)
+   .constant('ApiBasePath', 'https://js-restaurant.herokuapp.com/');
 
-   SignUpController.$inject = ['DataService', '$http']
-   function SignUpController(DataService, $http) {
+   SignUpController.$inject = ['DataService', '$http', 'ApiBasePath']
+   function SignUpController(DataService, $http, ApiBasePath) {
       var signUpCtrl = this;
       signUpCtrl.registered = DataService.getUserInfo();
       signUpCtrl.validForm = false;
@@ -13,17 +14,15 @@
 
       signUpCtrl.submit = function() {
          var dish = signUpCtrl.userInfo.favorDish;
-         $http.get('https://js-restaurant.herokuapp.com/menu_items/' + dish.toUpperCase() + '.json')
+         $http.get(ApiBasePath + '/menu_items/' + dish.toUpperCase() + '.json')
              .success(function(result) {
                 signUpCtrl.validForm = true;
                 DataService.userInfo = DataService.setUserInfo(signUpCtrl.userInfo);
                 DataService.menuInfo = DataService.setMenuInfo(result);
-               //  console.log(result);
              })
              .error(function(data, status) {
                  signUpCtrl.validForm = false;
                  signUpCtrl.isMenuExisted = true;
-               //   console.log(status);
              });
       }
    }

@@ -6,7 +6,7 @@
 
         <thead ng-if="$ctrl.data.length">
             <tr style="font-family:fantasy; font-size:1em; background-color:#cf065a; color:white">
-                <th>#</th>
+                <th align="center">#</th>
                 <th style="width:100px">Short Name</th>
                 <th>Name</th>
                 <th>Description</th>
@@ -17,7 +17,7 @@
 
         <tbody>
             <tr id="" ng-repeat="item in $ctrl.data" style="font-family:fantasy; font-size:1em;">
-                <td>{{$index+1}}</td>
+                <td align="center">{{$index+1}}</td>
                 <td align="center">{{item.short_name}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.description}}</td>

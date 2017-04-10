@@ -6,7 +6,7 @@
    </div>
 
    <div align="center" ng-if="myInfoCtrl.userInfo!==null" ng-init="myInfoCtrl.getMenuInfo()">
-         <h3>My Information</h3>
+         <h3 style="width:500px; background:#73835d; text-shadow: 1px 1px 1px #222;">My Information</h3>
          <div class="">
             <table class="table table-bordered" style="width:500px">
                <tr>
@@ -21,19 +21,16 @@
                <tr>
                   <td>Phone</td><td>{{myInfoCtrl.userInfo.phone}}</td>
                </tr>
-               <!-- <tr>
-                  <td>Favor Dish</td><td>{{myInfoCtrl.userInfo.favorDish}}</td>
-               </tr> -->
             </table>
 
          </div>
          <div align="center" style="width:500px">
-            <h3 class="">
+            <h3 class="" style="background:#73835d; text-shadow: 1px 1px 1px #222;">
                My Favorite Dish
             </h3>
             <table class="table table-bordered">
                <tr>
-                  <td>{{myInfoCtrl.userInfo.favorDish}} - {{myInfoCtrl.menuInfo.name}}</td>
+                  <td align="center">{{myInfoCtrl.userInfo.favorDish}} - {{myInfoCtrl.menuInfo.name}}</td>
                </tr>
                <tr align="center">
                   <td><img ng-src="https://js-restaurant.herokuapp.com/images/{{myInfoCtrl.userInfo.favorDish.toUpperCase()}}.jpg" alt=""></td>
