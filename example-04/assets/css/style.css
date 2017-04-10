@@ -28,8 +28,8 @@
 
 .welcome {
     position: relative;
-    width: 400px;
-    heigth: 400px;
+    width: 450px;
+    heigth: 450px;
     box-shadow: 6px 6px 4px #888;
     border-radius: 50%;
     color: #cf065a;
@@ -40,13 +40,13 @@
 #menu {
     width: 150px;
     height: 150px;
-    border: 5px solid #cf065a;
+    border: 5px solid #ddd8da;
     border-radius: 50%;
     box-shadow: 6px 6px 4px #888;
 }
 
 #menu:hover {
-    border: 5px solid #5298f5;
+    border: 5px solid #cf065a;
     border-radius: 50%;
 }
 
