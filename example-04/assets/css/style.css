@@ -1,5 +1,5 @@
 .headerMenu {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -12,6 +12,8 @@
     height: 60px;
     line-height: 50px;
     width: 100%;
+    opacity: 0.9;
+    z-index: 5;
 }
 
 .item {

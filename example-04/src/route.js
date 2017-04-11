@@ -28,12 +28,12 @@
                 templateUrl: 'src/items/items.html',
                 controller: 'ItemsController as items',
                 resolve: {
-                   menuItems: ['$stateParams', 'MenuDataService', function($stateParams, MenuDataService) {
-                      return MenuDataService.getItemsForCategory($stateParams.shortname)
-                        .then(function(res){
-                           return res.data;
-                        });
-                   }]
+                    menuItems: ['$stateParams', 'MenuDataService', function($stateParams, MenuDataService) {
+                        return MenuDataService.getItemsForCategory($stateParams.shortname)
+                            .then(function(res) {
+                                return res.data;
+                            });
+                    }]
                 }
             });
     }
