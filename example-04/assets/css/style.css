@@ -75,3 +75,16 @@ a:active {
   background-color: #717474;
   color: white;
 }
+
+#home {
+   position:relative;
+   left:10px;
+   font-family:fantasy;
+   font-size:1.2em;
+   font-weight:bold;
+   outline: none;
+}
+
+#home:hover {
+   color: #f7f507;
+}
