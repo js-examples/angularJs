@@ -10,6 +10,7 @@
         categories.categoryItems = [];
 
         categories.getAllCategories = function() {
+
             var promise = MenuDataService.getAllCategories();
             promise.then(function(res) {
                     categories.categoryItems = res.data;
