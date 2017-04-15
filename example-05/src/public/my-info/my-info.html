@@ -1,13 +1,13 @@
 
-   <div ng-if="myInfoCtrl.userInfo===null">
+   <div ng-if="myInfoCtrl.userInfo===null" class="wow fadeInDown">
       <div align="center">
          Not Register Yet. Please <a ui-sref="public.signup">Sign Up Now!</a>
       </div>
    </div>
 
    <div align="center" ng-if="myInfoCtrl.userInfo!==null" ng-init="myInfoCtrl.getMenuInfo()">
-         <h3 style="width:500px; background:#73835d; text-shadow: 1px 1px 1px #222;">My Information</h3>
-         <div class="">
+         <div class="wow fadeInDown">
+            <h3 style="width:500px; background:#73835d; text-shadow: 1px 1px 1px #222;">My Information</h3>
             <table class="table table-bordered" style="width:500px">
                <tr>
                   <td>First Name</td><td>{{myInfoCtrl.userInfo.firstname}}</td>
@@ -24,7 +24,7 @@
             </table>
 
          </div>
-         <div align="center" style="width:500px">
+         <div class="wow fadeInUp" align="center" style="width:500px">
             <h3 class="" style="background:#73835d; text-shadow: 1px 1px 1px #222;">
                My Favorite Dish
             </h3>

@@ -3,7 +3,7 @@
 
 angular.module('MenuApp')
 .component('loading', {
-  template: '<img src="images/spinner.svg" ng-if="$ctrl.show">',
+  template: '<img src="./assets/img/spinner.svg" ng-if="$ctrl.show">',
   controller: LoadingController
 });
 
